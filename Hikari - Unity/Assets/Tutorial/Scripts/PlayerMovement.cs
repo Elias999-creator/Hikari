@@ -2,49 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rb2D;
-    private Animator animator;
+    public CharacterController2D controller;
+    public Animator animator;
 
-    private bool facingRight = true;
+    public float runSpeed = 40f;
 
-    public float speed = 2.0f;
-    public float horizMovement;
+    float horizontalMove = 0f;
+    bool jump = false;
+    bool crouch = false;
 
-    void Start()
-    {
-        rb2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-    }
-
-    
+    // Update is called once per frame
     void Update()
     {
-        // check if the player has inpirt movement
-        horizMovement = Input.GetAxis("Horizontal");
-    }
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-    private void FixedUpdate()
-    {
-        // move the charachyer left and right
-        rb2D.velocity = new Vector2(horizMovement*speed, rb2D.velocity.y);
-        animator.SetFloat("speed", Mathf.Abs(horizMovement));
-        Flip(horizMovement);
-    }
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-    private void Flip(float horizontal)
-    {
-        if (horizontal < 0 && facingRight || horizontal > 0 && !facingRight)
+        if (Input.GetButtonDown("Jump"))
         {
-            facingRight = !facingRight;
+            jump = true;
+            animator.SetBool("IsJumping", true);
+        }
 
-            Vector3 theScale = transform.localScale;
-            theScale.x *= -1;
-            transform.localScale = theScale;
+        if (Input.GetButtonDown("Crouch"))
+        {
+            crouch = true;
+        }
+
+        else if (Input.GetButtonUp("Crouch"))
+        {
+            crouch = false;
         }
     }
 
+    public void OnLanding()
+    {
+        animator.SetBool("IsJumping", false);
+    }
+
+    public void OnCrouching(bool isCrouching)
+    {
+        animator.SetBool("IsCrouching", isCrouching);
+    }
+
+    void FixedUpdate()
+    {
+        // Move our
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        jump = false;
+    }
 }
