@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Swamp.unity
     guid: 4a007a5dfb75f6a4eabd6f93da64bf65
+  - enabled: 1
+    path: Assets/Scenes/Taiga.unity
+    guid: c4bb3bc1d06b54a5cad13c065699392c
   m_configObjects: {}

@@ -29,6 +29,15 @@ public class CharacterController2D : MonoBehaviour
 
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
+	bool isGrounded;
+	bool isTouchingFront;
+	public Transform frontCheck;
+	bool wallSliding;
+	public float wallSlidingSpeed;
+	bool wallJumping;
+	public float xWallForce;
+	public float yWallForce;
+	public float wallJumpTime;
 
 	private void Awake()
 	{
@@ -41,7 +50,39 @@ public class CharacterController2D : MonoBehaviour
 			OnCrouchEvent = new BoolEvent();
 	}
 
-	private void FixedUpdate()
+    private void Update()
+    {
+		float input = Input.GetAxisRaw("Horizontal");
+		isGrounded = Physics2D.OverlapCircle(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+		isTouchingFront = Physics2D.OverlapCircle(frontCheck.position, k_GroundedRadius, m_WhatIsGround);
+
+		if (isTouchingFront == true && isGrounded == false && input != 0)
+		{
+			wallSliding = true;
+		}
+		else
+		{
+			wallSliding = false;
+		}
+
+		if (wallSliding)
+		{
+			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, Mathf.Clamp(m_Rigidbody2D.velocity.y, -wallSlidingSpeed, float.MaxValue));
+		}
+
+		if (Input.GetKeyDown(KeyCode.Space) && wallSliding == true)
+        {
+			wallJumping = true;
+			Invoke("SetWallJumpToFalse", wallJumpTime);
+        }
+
+		if (wallJumping == true)
+        {
+			m_Rigidbody2D.velocity = new Vector2(xWallForce * -input, yWallForce);
+		}
+	}
+
+    private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
@@ -143,4 +184,9 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	void SetWallJumpToFalse()
+    {
+		wallJumping = false;
+    }
 }
