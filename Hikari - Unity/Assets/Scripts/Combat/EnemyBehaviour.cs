@@ -5,23 +5,21 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     #region Public Variables
-    public Transform rayCast;
-    public LayerMask rayCastMask;
-    public float rayCastLength;
     public float attackDistance;
     public float moveSpeed;
     public float timer;
     public Transform leftLimit;
     public Transform rightLimit;
+    [HideInInspector] public Transform target;
+    [HideInInspector] public bool inRange;
+    public GameObject hotZone;
+    public GameObject triggerArea;
     #endregion
 
     #region Private Variables
-    private RaycastHit2D hit;
-    private Transform target;
     private Animator animator;
     private float distance;
     private bool attackMode;
-    private bool inRange;
     private bool cooling;
     private float intTimer;
     #endregion
@@ -44,36 +42,13 @@ public class EnemyBehaviour : MonoBehaviour
         {
             SelectTarget();
         }
-        if (inRange)
-        {
-            hit = Physics2D.Raycast(rayCast.position, transform.right, rayCastLength, rayCastMask);
-            RaycastDebugger();
-        }
 
-        if(hit.collider != null)
+        if (inRange)
         {
             EnemyLogic();
         }
-        else if (hit.collider == null)
-        {
-            inRange = false;
-        }
-
-        if (inRange == false)
-        {
-            StopAttack();
-        }
     }
 
-    void OnTriggerEnter2D(Collider2D trig)
-    {
-        if(trig.gameObject.tag == "Player")
-        {
-            target = trig.transform;
-            inRange = true;
-            Flip();
-        }
-    }
 
     void EnemyLogic ()
     {
@@ -121,23 +96,12 @@ public class EnemyBehaviour : MonoBehaviour
         animator.SetBool("Attack", false);
     }
 
-    void RaycastDebugger()
-    {
-        if(distance > attackDistance)
-        {
-            Debug.DrawRay(rayCast.position, transform.right * rayCastLength, Color.red);
-        }
-        else if (attackDistance > distance)
-        {
-            Debug.DrawRay(rayCast.position, transform.right * rayCastLength, Color.green);
-        }
-    }
     private bool InsideofLimits()
     {
         return transform.position.x > leftLimit.position.x && transform.position.x < rightLimit.position.x;
     }
 
-    private void SelectTarget()
+    public void SelectTarget()
     {
         float distanceToLeft = Vector2.Distance(transform.position, leftLimit.position);
         float distanceToRight = Vector2.Distance(transform.position, rightLimit.position);
@@ -154,7 +118,7 @@ public class EnemyBehaviour : MonoBehaviour
         Flip();
     }
 
-    private void Flip()
+    public void Flip()
     {
         Vector3 rotation = transform.eulerAngles;
         if (transform.position.x > target.position.x)
