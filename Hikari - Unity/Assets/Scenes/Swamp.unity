@@ -71039,7 +71039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f674e3183c482274b81f5bc460233fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 2
+  sceneToLoad: 3
 --- !u!212 &1925744216
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -71228,7 +71228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f674e3183c482274b81f5bc460233fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 0
+  sceneToLoad: 1
 --- !u!212 &1983319444
 SpriteRenderer:
   m_ObjectHideFlags: 0
