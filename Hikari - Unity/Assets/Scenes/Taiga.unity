@@ -1392,12 +1392,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282df57ab73a74bf9ab356e28a70001d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textDisplay: {fileID: 0}
+  textDisplay: {fileID: 928376939}
   sentences:
   - Hello.
   - This is a test.
   typingSpeed: 0.02
-  continueButton: {fileID: 0}
+  continueButton: {fileID: 2017654763}
 --- !u!4 &732688133
 Transform:
   m_ObjectHideFlags: 0
