@@ -22,6 +22,8 @@ public class EnemyBehaviour : MonoBehaviour
     private bool attackMode;
     private bool cooling;
     private float intTimer;
+
+    [SerializeField] private AudioSource attackSoundEffect;
     #endregion
 
     void Awake()
@@ -87,6 +89,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         animator.SetBool("IsWalking", false);
         animator.SetBool("Attack", true);
+        attackSoundEffect.Play();
     }
 
     void StopAttack()
