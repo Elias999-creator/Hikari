@@ -20,6 +20,8 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
+    [SerializeField] private AudioSource swordSoundEffect;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -54,6 +56,7 @@ public class PlayerCombat : MonoBehaviour
     void Attack()
     {
         animator.SetTrigger("Attack");
+        swordSoundEffect.Play();
 
         // Range
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
