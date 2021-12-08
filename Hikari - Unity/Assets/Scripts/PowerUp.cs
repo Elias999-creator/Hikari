@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    public int add = 1;
+    public int health = 1;
+    public int attack = 1;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,7 +18,8 @@ public class PowerUp : MonoBehaviour
     void Pickup(Collider2D player)
     {
         PlayerCombat stats = player.GetComponent<PlayerCombat>();
-        stats.currentHealth += add;
+        stats.currentHealth += health;
+        stats.attackDamage += attack;
 
         Destroy(gameObject);
     }
