@@ -51,6 +51,11 @@ public class PlayerCombat : MonoBehaviour
         currentHealth -= damage;
 
         healthBar.SetMaxHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     void Attack()
@@ -74,5 +79,13 @@ public class PlayerCombat : MonoBehaviour
             return;
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    void Die()
+    {
+        animator.SetBool("IsDead", true);
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<PlayerMovement>().enabled = false;
+        this.enabled = false;
     }
 }
