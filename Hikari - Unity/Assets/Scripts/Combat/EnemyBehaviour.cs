@@ -37,8 +37,6 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Debug.Log(intTimer);
         if (!attackMode)
         {
             Move();

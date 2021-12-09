@@ -66,7 +66,6 @@ public class PlayerCombat : MonoBehaviour
         // Range
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        Debug.Log(hitEnemies);
 
         // Damage time
         foreach(Collider2D enemy in hitEnemies)
