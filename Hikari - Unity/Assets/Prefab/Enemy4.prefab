@@ -301,13 +301,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDistance: 2
   moveSpeed: 2
-  timer: 0
+  timer: 3
   leftLimit: {fileID: 0}
   rightLimit: {fileID: 0}
   target: {fileID: 0}
   inRange: 0
   hotZone: {fileID: 0}
   triggerArea: {fileID: 0}
+  playerCombat: {fileID: 0}
   attackSoundEffect: {fileID: 6838712146214899744}
 --- !u!95 &6463531937421705033
 Animator:
@@ -435,7 +436,7 @@ GameObject:
   - component: {fileID: 6463531937968644335}
   - component: {fileID: 6463531937968644337}
   - component: {fileID: 6463531937968644336}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HotZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

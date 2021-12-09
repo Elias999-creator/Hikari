@@ -14,6 +14,7 @@ public class EnemyBehaviour : MonoBehaviour
     [HideInInspector] public bool inRange;
     public GameObject hotZone;
     public GameObject triggerArea;
+    public PlayerCombat playerCombat;
     #endregion
 
     #region Private Variables
@@ -31,11 +32,14 @@ public class EnemyBehaviour : MonoBehaviour
         SelectTarget();
         intTimer = timer;
         animator = GetComponent<Animator>();
+        playerCombat = FindObjectOfType<PlayerCombat>();
     }
     // Update is called once per frame
     void Update()
     {
-        if(!attackMode)
+
+        Debug.Log(intTimer);
+        if (!attackMode)
         {
             Move();
         }
@@ -48,6 +52,14 @@ public class EnemyBehaviour : MonoBehaviour
         if (inRange)
         {
             EnemyLogic();
+        }
+
+        timer -= Time.deltaTime;
+
+        if(timer <= 0)
+        {
+            cooling = false;
+            timer = intTimer;
         }
     }
 
@@ -84,12 +96,14 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Attack()
     {
-        timer = intTimer;
         attackMode = true;
 
         animator.SetBool("IsWalking", false);
         animator.SetBool("Attack", true);
         attackSoundEffect.Play();
+
+        playerCombat.TakeDamage(10);
+        cooling = true;
     }
 
     void StopAttack()

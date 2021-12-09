@@ -46,11 +46,11 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
-        healthBar.SetMaxHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -65,6 +65,8 @@ public class PlayerCombat : MonoBehaviour
 
         // Range
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        Debug.Log(hitEnemies);
 
         // Damage time
         foreach(Collider2D enemy in hitEnemies)
