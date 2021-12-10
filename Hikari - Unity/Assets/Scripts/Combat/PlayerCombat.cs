@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -88,5 +89,6 @@ public class PlayerCombat : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         GetComponent<PlayerMovement>().enabled = false;
         this.enabled = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
