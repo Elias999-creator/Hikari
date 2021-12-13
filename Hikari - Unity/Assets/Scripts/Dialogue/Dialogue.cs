@@ -9,11 +9,14 @@ public class Dialogue : MonoBehaviour
     public string[] sentences;
     private int index;
     public float typingSpeed;
+    public Animator animator;
 
     public GameObject continueButton;
 
     void Start()
     {
+        animator.SetBool("IsOpen", true);
+
         StartCoroutine(Type());
     }
 
@@ -38,7 +41,7 @@ public class Dialogue : MonoBehaviour
     {
         continueButton.SetActive(false);
 
-        if(index < sentences.Length - 1)
+        if (index < sentences.Length - 1)
         {
             index++;
             textDisplay.text = "";
@@ -47,6 +50,13 @@ public class Dialogue : MonoBehaviour
         {
             textDisplay.text = "";
             continueButton.SetActive(false);
+            EndDialogue();
+            return;
         }
+    }
+
+    void EndDialogue()
+    {
+        animator.SetBool("IsOpen", false);
     }
 }

@@ -57782,13 +57782,14 @@ GameObject:
   - component: {fileID: 268105778}
   - component: {fileID: 268105780}
   - component: {fileID: 268105779}
+  - component: {fileID: 268105781}
   m_Layer: 0
   m_Name: Dialogue Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &268105778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57807,7 +57808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11, y: -338}
+  m_AnchoredPosition: {x: 11, y: -298}
   m_SizeDelta: {x: 11.37, y: 2.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &268105779
@@ -57848,6 +57849,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268105777}
   m_CullTransparentMesh: 1
+--- !u!95 &268105781
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268105777}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8027c09e81b34349904300c09ee8d8e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &284711799 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4166348027462460053, guid: 86057d9cd87fd4760b97e61c0995d83a, type: 3}
@@ -64503,8 +64523,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 125
-  m_fontSizeBase: 125
+  m_fontSize: 69
+  m_fontSizeBase: 69
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -64539,7 +64559,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -332.8898, w: -95.51536}
+  m_margin: {x: 0, y: 0, z: -931.18066, w: -73.19109}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -66619,9 +66639,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 1079709752}
   sentences:
-  - Hello.
-  - This is a test.
-  typingSpeed: 0.02
+  - 'Spirit: Hey! You look like you have a great sense in fashion...'
+  - 'Spirit: I''ve been noticing these terrible "things" causing trouble.'
+  - 'Spirit: (They also what they''re wearing looks terrible too...)'
+  - 'Spirit: I was hoping you''d be able to help me out!'
+  - 'Spirit: Collect pieces of clothing and power up!'
+  typingSpeed: 1
+  animator: {fileID: 268105781}
   continueButton: {fileID: 458416723}
 --- !u!4 &2053000912
 Transform:
