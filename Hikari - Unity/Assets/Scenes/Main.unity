@@ -63050,8 +63050,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540181324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4436, y: 0.4797, z: 10}
-  m_LocalScale: {x: 2.3527873, y: 2.3527873, z: 1.5685248}
+  m_LocalPosition: {x: 3.2749, y: 2.3863, z: 10}
+  m_LocalScale: {x: 1.9537545, y: 1.9537545, z: 1.302503}
   m_Children:
   - {fileID: 100935419}
   - {fileID: 1451767827}
@@ -63149,8 +63149,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556765229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3265, y: 0.4317, z: 10}
-  m_LocalScale: {x: 7.244005, y: 5.881714, z: 1.5685248}
+  m_LocalPosition: {x: 3.3721, y: 2.3464, z: 10}
+  m_LocalScale: {x: 6.015422, y: 4.8841753, z: 1.302503}
   m_Children:
   - {fileID: 2005509788}
   - {fileID: 2067940563}
@@ -63221,7 +63221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 169875020}
-  parallaxEffect: 0
+  parallaxEffect: 1
 --- !u!1 &574066630
 GameObject:
   m_ObjectHideFlags: 0
@@ -63908,8 +63908,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875334828}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4436, y: 0.4797, z: 10}
-  m_LocalScale: {x: 2.3527873, y: 2.3527873, z: 1.5685248}
+  m_LocalPosition: {x: 3.2749, y: 2.3863, z: 10}
+  m_LocalScale: {x: 1.9537545, y: 1.9537545, z: 1.302503}
   m_Children:
   - {fileID: 259684586}
   - {fileID: 1292576988}
@@ -66319,8 +66319,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728056240}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4382, y: -0.49, z: 10}
-  m_LocalScale: {x: 2.3527873, y: 2.3527873, z: 3.1370497}
+  m_LocalPosition: {x: 3.2794, y: 1.581, z: 10}
+  m_LocalScale: {x: 1.9537545, y: 1.9537545, z: 2.605006}
   m_Children:
   - {fileID: 450432509}
   - {fileID: 1541382850}
@@ -66418,8 +66418,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836618761}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4436, y: 0.4797, z: 10}
-  m_LocalScale: {x: 2.3527873, y: 2.3527873, z: 1.5685248}
+  m_LocalPosition: {x: 3.2749, y: 2.3863, z: 10}
+  m_LocalScale: {x: 1.9537545, y: 1.9537545, z: 1.302503}
   m_Children:
   - {fileID: 259978276}
   - {fileID: 190306278}
@@ -66536,7 +66536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 169875020}
-  parallaxEffect: 0
+  parallaxEffect: 1
 --- !u!212 &2005509790
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -66687,7 +66687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 169875020}
-  parallaxEffect: 0
+  parallaxEffect: 1
 --- !u!212 &2067940565
 SpriteRenderer:
   m_ObjectHideFlags: 0
